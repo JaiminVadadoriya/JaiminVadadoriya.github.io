@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <!--
@@ -21,9 +21,9 @@
     <meta content="IE=Edge" http-equiv="X-UA-Compatible">
     <meta name="description" content="A portfolio of Jaimin Vadadoriya. Jaimin Vadadoriya was software developer in India.">
 
-    <meta name="keywords" content="Jaimin, Vadadoriya, PortFolio, IT, Software Developer, India, Flutter, Appliaction, Software, jaimin, hire,">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Jaimin, Vadadoriya, PortFolio, IT, Software Developer, India, Flutter, Appliaction, Software, jaimin, hire, vadadoriya, github, io">
     <meta name="author" content="Jaimin Vadadoriya">
+    <meta flt-viewport="" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <!-- iOS meta tags & icons -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -40,13 +40,67 @@
 
     <script>
         // The value below is injected by flutter build, do not touch.
-        var serviceWorkerVersion = '1151440022';
+        var serviceWorkerVersion = '3219692520';
     </script>
     <!-- This script adds the flutter initialization JS code -->
     <script src="flutter.js" defer></script>
+
+    <style>
+        body {
+            background-color: #07111a;
+        }
+        
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        
+        .loader {
+            border: 16px solid #149f8c;
+            border-radius: 50%;
+            border: 15px solid;
+            border-top: 16px solid #16b6a0;
+            border-right: 16px solid #07111a;
+            border-bottom: 16px solid #16b6a0;
+            border-left: 16px solid #07111a;
+            width: 120px;
+            height: 120px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+        }
+        
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <div class="loading">
+        <div class="loader"></div>
+    </div>
+    <script src="main.dart.js" type="application/javascript"></script>
     <script>
         window.addEventListener('load', function(ev) {
             // Download main.dart.js
