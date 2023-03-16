@@ -40,69 +40,47 @@
 
     <script>
         // The value below is injected by flutter build, do not touch.
-        var serviceWorkerVersion = '394707618';
+        var serviceWorkerVersion = '2357599092';
     </script>
     <!-- This script adds the flutter initialization JS code -->
     <script src="flutter.js" defer></script>
 
-    <style>
-        body {
-            background-color: #07111a;
-        }
-        
-        .loading {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            -ms-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-        }
-        
-        .loader {
-            border: 16px solid #149f8c;
-            border-radius: 50%;
-            border: 15px solid;
-            border-top: 16px solid #16b6a0;
-            border-right: 16px solid #07111a;
-            border-bottom: 16px solid #16b6a0;
-            border-left: 16px solid #07111a;
-            width: 120px;
-            height: 120px;
-            -webkit-animation: spin 2s linear infinite;
-            animation: spin 2s linear infinite;
-        }
-        
-        @-webkit-keyframes spin {
-            0% {
-                -webkit-transform: rotate(0deg);
-            }
-            100% {
-                -webkit-transform: rotate(360deg);
-            }
-        }
-        
-        @keyframes spin {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-    </style>
 </head>
 
 <body>
-    <div class="loading">
-        <div class="loader"></div>
+    <div class="loading" id="loading">
+        <style>
+            body {
+                background-color: #07111a;
+            }
+            
+            .loading {
+                position: absolute;
+                top: calc(50% - 100px);
+                left: calc(50% - 100px);
+                width: 200px;
+                height: 200px;
+                border: 5px solid #f3f3f3;
+                border-radius: 50%;
+                border-top: 3px solid #16b6a0;
+                /* border-top: 3px solid #345689; */
+                animation: spin 1s ease-in infinite;
+            }
+            
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
     </div>
-    <script src="main.dart.js" type="application/javascript"></script>
     <script>
         window.addEventListener('load', function(ev) {
+            //loading my code
+            let loading = document.querySelector('#loading');
             // Download main.dart.js
             _flutter.loader.loadEntrypoint({
                 serviceWorker: {
@@ -110,6 +88,7 @@
                 },
                 onEntrypointLoaded: function(engineInitializer) {
                     engineInitializer.initializeEngine().then(function(appRunner) {
+                        loading.remove();
                         appRunner.runApp();
                     });
                 }
